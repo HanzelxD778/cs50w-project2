@@ -1,0 +1,75 @@
+.animate__heartBeat{
+    margin-top: 100px;
+}
+
+.boton {
+    color: #fff;
+    background-color: #4723D9;
+}
+
+.boton:hover{
+    color: #fff;
+}
+
+.form-control {
+    display: inline-block;
+    width: 50%;
+}
+
+main
+{
+    /* center contents */
+    text-align: center;
+}
+
+.punto::before {
+    content: "\25CF";
+    color: green;
+}
+
+.chats {
+    overflow-y: scroll;
+    position: relative;
+    justify-content: center;
+}
+
+.list {
+    list-style: none;
+}
+
+.otra-persona {
+    word-wrap: break-word;
+    width: 50%;
+    background-color: darkgray;
+    padding: 7px 10px;
+    border-radius: 10px;
+    margin: 0px auto 5px 5px;
+}
+
+.mi-persona {
+    word-wrap: break-word;
+    width: 50%;
+    background-color:darkviolet;
+    padding: 7px 10px;
+    border-radius: 10px;
+    margin: 5px 0px 5px auto;
+}
+/*
+.client-chat {
+	list-style: none;
+	width: 60%;
+	word-wrap: break-word;
+	background-color: rgb(91, 97, 97);
+	padding: 7px 10px;
+	border-radius: 10px 10px 10px 0;
+	margin: 10px 0;
+}
+.my-chat {
+	list-style: none;
+	width: 60%;
+	word-wrap: break-word;
+	background-color: chocolate;
+	padding: 7px 10px;
+	border-radius: 10px 10px 0 10px;
+	margin: 5px 0 5px auto;
+}*/

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Registro
+{% endblock %}
+
+{% block main %}
+
+<h1 class="animate__heartBeat text-center" >Ingresa tu nombre para empezar a chatear en Flack!</h1>
+
+<form action="/login" method="POST" id="nombreUsuario">
+    <div class="form-group">
+        <input id="username" type="text" class="form-control" name="username" autofocus required aria-describedby="userHelp" style="border-color:#4723D9;">
+        <br><small id="userHelp" class="form-text text-muted">Este será el usuario con el que te identificaras dentro de flack</small>
+    </div>
+    <button class="btn boton" type="submit">Ingresar</button>
+</form>
+
+<svg id="svg" style="width:50%; height: 100px"></svg>
+
+<script>
+    /*Animacion de circulo*/
+    const svg = d3.select('#svg');
+
+    const c = svg.append('circle')
+                 .attr('cx', 50)
+                 .attr('cy', 50)
+                 .attr('r', 10)
+                 .style('fill', 'blue');
+
+    c.transition()
+     .duration(1000)
+     .delay(1000)
+     .attr('cx', 500);
+
+    c.on('click', function() {
+        d3.select(this).transition()
+                       .duration(300)
+                       .style('fill', '#4723D9');
+    });
+
+    //Almacenar el usuario en localStorage
+    document.querySelector('#nombreUsuario').onsubmit = () => {
+        const user = document.querySelector('#username').value;
+        localStorage.setItem("localuser", user);
+    };
+
+</script>
+
+{% endblock %}

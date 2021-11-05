@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Flack
+{% endblock %}
+
+{% block main %}
+
+    <div class="container p-3 my-3 border">
+        <center>
+            <h1>Agrega un nuevo canal</h1>
+            
+            <form method="POST" id="new-channel">
+                <div class="d-flex justify-content-between align-items-center" style="height: 20vh;">
+                    <div class="input-group mx-3">
+                        <input type="text" class="form-control" required id="channel" name="channel" autocomplete="off" placeholder="Crea un nuevo canal" style="border-radius:10px;">
+                    </div>  
+                    <button type="submit" id="submitChannel" class="btn boton">Crear</button>        
+                </div>
+            </form>
+
+            <h4>Usuarios activos</h4>
+            <div class="container">
+                <div class="row">
+                    <ul id="usuarios">
+                        {% for activo in activos %}
+                            {% if activo != session.username %}           
+                                <li class="list punto usuariosActivos">
+                                    {{ activo }}
+                                </li>
+                            {% endif %}    
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        
+        </center>
+    </div>
+
+{% endblock %}
+
+{% block loginJs %}
+<script>
+    /*socket.on("nuevoUser", data => {
+        let elemento = `<li class="list punto usuariosActivos">${data.user}</li>`;
+        document.querySelector("#usuarios").innerHTML += elemento;
+        console.log("TUVE FE");
+    });*/
+</script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Flack
+{% endblock %}
+
+{% block main %}
+
+    <div class="container p-3 my-3 border">
+        <center>
+            <h1>{{canal}}</h1>
+            <!--ul id="texto-msj" style="list-style:none"></ul-->
+            
+            
+            <div class="chats" style="height: 40vh;">
+                <ul id="mensajes" class="list">
+                    {% if ChannelsMessages %}
+                        {% for mensaje in ChannelsMessages %}
+                            {% if mensaje[0] != session["username"] %}
+                                <li class="otra-persona">{{mensaje[0]}}: {{mensaje[1]}} [Fecha: {{mensaje[2]}}]</li>
+                            {% else %}
+                                <li class="mi-persona">{{mensaje[0]}}: {{mensaje[1]}} [Fecha: {{mensaje[2]}}]</li>
+                            {% endif %}
+                        {% endfor %}
+                        {{"--- Mensajes anteriores ---"}}
+                    {% endif %}
+                </ul>
+            </div>
+                
+            <form id="new-msg">
+                <div class="d-flex justify-content-between align-items-center" style="height: 20vh;">
+                    <div class="input-group mx-3">
+                        <input type="text" class="form-control" required id="msg" name="channel" autocomplete="off" placeholder="Escribe un mensaje aquí" style="border-radius:10px;">
+                    </div>  
+                    <button type="submit" id="btn-msg" class="btn boton">Enviar</button>        
+                </div>
+            </form>
+        
+        </center>
+    </div>
+
+{% endblock %}
